@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossy Lip Gloss — Shine Bright</title>
+  <style>
+    :root {
+      --pink: #ff5da2;
+      --rosy: #ffb3c7;
+      --cream: #fff4f9;
+      --dark: #2c1b25;
+      --shadow: rgba(0, 0, 0, 0.18);
+      --gold: #ffd700;
+      --glass: rgba(255, 255, 255, 0.6);
+      --font: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      color: var(--dark);
+      background: radial-gradient(circle at top, #fff0f5 0%, #fff 60%);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 20px 80px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 93, 162, 0.9), rgba(255, 191, 199, 0.85) 55%, rgba(255, 255, 255, 0.65));
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.9), transparent 55%),
+        radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.8), transparent 60%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .header-shine {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--pink), var(--rosy), var(--gold));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shimmer 3s ease-in-out infinite;
+      text-shadow: 0 6px 24px rgba(255, 93, 162, 0.25);
+    }
+
+    p.subtitle {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      max-width: 54ch;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(44, 27, 37, 0.85);
+    }
+
+    .hero-cta {
+      margin-top: 2.4rem;
+      display: inline-flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      text-decoration: none;
+    }
+
+    .button--primary {
+      background: linear-gradient(135deg, rgba(255, 93, 162, 0.92), rgba(255, 191, 199, 0.92));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(255, 93, 162, 0.35);
+    }
+
+    .button--primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 34px rgba(255, 93, 162, 0.42);
+    }
+
+    .button--secondary {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--dark);
+      border-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+    }
+
+    .button--secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    @keyframes shimmer {
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section__text {
+      flex: 1 1 360px;
+      min-width: 280px;
+    }
+
+    .section__media {
+      flex: 1 1 360px;
+      min-width: 280px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: rgba(44, 27, 37, 0.9);
+    }
+
+    .card p {
+      line-height: 1.65;
+      color: rgba(44, 27, 37, 0.85);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .product {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .product::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.65), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product:hover::after {
+      opacity: 1;
+    }
+
+    .product img {
+      border-radius: 20px 20px 0 0;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 18px 18px 22px;
+    }
+
+    .product-body h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .product-body p {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      color: rgba(44, 27, 37, 0.75);
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 93, 162, 0.15);
+      color: var(--pink);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 720px) {
+      .section__inner {
+        flex-direction: column-reverse;
+      }
+
+      header {
+        padding: 100px 16px 60px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    /* Glow particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 1), rgba(255, 93, 162, 0));
+      opacity: 0.6;
+      animation: drift 12s infinite ease-in-out;
+    }
+
+    .particle:nth-child(1) {
+      top: 15%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      top: 40%;
+      left: 80%;
+      animation-delay: 2s;
+    }
+
+    .particle:nth-child(3) {
+      top: 70%;
+      left: 30%;
+      animation-delay: 4s;
+    }
+
+    .particle:nth-child(4) {
+      top: 60%;
+      left: 55%;
+      animation-delay: 1s;
+    }
+
+    .particle:nth-child(5) {
+      top: 25%;
+      left: 60%;
+      animation-delay: 3s;
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(14px, -18px) scale(1.2);
+      }
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="particles">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+
+    <div class="header-shine">
+      <h1>Glossy Lip Gloss</h1>
+    </div>
+
+    <p class="subtitle">Hydrating shine that lasts all day—crafted with clean ingredients and designed to feel as good as it looks.</p>
+
+    <div class="hero-cta">
+      <a class="button button--primary" href="#products">Shop Bestsellers</a>
+      <a class="button button--secondary" href="#about">Why Gloss?</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="card section__inner">
+        <div class="section__text">
+          <h2>About Our Gloss</h2>
+          <p>Every tube is formulated to deliver a glass-like finish while keeping lips soft and nourished. Our lightweight blend absorbs quickly, leaving no stickiness—only a luscious shine.</p>
+          <p>We source sustainable botanical oils and enrich each formula with vitamins and antioxidants so your lips look radiant and feel healthy.</p>
+          <ul>
+            <li>Cruelty-free + vegan</li>
+            <li>Shea butter + jojoba oil + vitamin E</li>
+            <li>Paraben-free, phthalate-free, and fragrance-balanced</li>
+            <li>Subtle shimmer that wears beautifully over lipstick or on its own</li>
+          </ul>
+        </div>
+        <div class="section__media">
+          <div class="card" style="background: linear-gradient(140deg, rgba(255, 229, 242, 0.88), rgba(255, 247, 240, 0.88));">
+            <img src="C:\Users\260193\Documents\web pro\img\lip gloss.webp" alt="Gloss tube on a pink background">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="card">
+        <h2>Best Sellers</h2>
+        <p>Shop the shades everyone is raving about. Each comes with a gentle doe-foot applicator for smooth, even coverage.</p>
+        <div class="product-grid">
+          <article class="product">
+            <img src="C:\Users\260193\Documents\web pro\img\rose.jpg" alt="Rose Blush gloss" width="300" height="200">
+            <div class="product-body">
+              <h3>Rose Blush</h3>
+              <p>A romantic pink gloss with a soft rose tint and luminous finish.</p>
+              <div class="product-footer">
+                <span class="badge">Hydrating</span>
+                <strong>$13</strong>
+              </div>
+            </div>
+          </article>
+          <article class="product">
+            <img src="C:\Users\260193\Documents\web pro\img\berry.jpg" alt="Berry Burst gloss" height="200px" width="200px">
+            <div class="product-body">
+              <h3>Berry Burst</h3>
+              <p>A deep berry shade with rich shine that layers beautifully over your favorite lip color.</p>
+              <div class="product-footer">
+                <span class="badge">Vegan</span>
+                <strong>$13</strong>
+              </div>
+            </div>
+          </article>
+          <article class="product">
+            <img src="C:\Users\260193\Documents\web pro\img\golden.webp" alt="Golden Glow gloss" height="200px" width="200px">
+            <div class="product-body">
+              <h3>Golden Glow</h3>
+              <p>Sunlit shimmer with a touch of gold—perfect for adding a subtle highlight to your pout.</p>
+              <div class="product-footer">
+                <span class="badge">Glow</span>
+                <strong>$15</strong>
+              </div>
+            </div>
+          </article>
+          <article class="product">
+            <img src="C:\Users\260193\Documents\web pro\img\crystal.webp" alt="Crystal Clear gloss" width="200">
+            <div class="product-body">
+              <h3>Crystal Clear</h3>
+              <p>Pure gloss with a high-shine finish that looks great over any shade.</p>
+              <div class="product-footer">
+                <span class="badge">Clean</span>
+                <strong>$12</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ingredients">
+      <div class="card section__inner">
+        <div class="section__media">
+          <img src="C:\Users\260193\Documents\web pro\img\ing.webp" alt="Natural ingredients illustration">
+        </div>
+        <div class="section__text">
+          <h2>Clean Ingredients</h2>
+          <p>We believe beauty should feel as good as it looks. That’s why our formula is intentionally simple and sustainably sourced.</p>
+          <ol>
+            <li><strong>Shea Butter</strong> – deeply moisturizing without feeling heavy.</li>
+            <li><strong>Jojoba Oil</strong> – a lightweight carrier that seals in hydration.</li>
+            <li><strong>Vitamin E</strong> – an antioxidant that helps protect and soothe.</li>
+            <li><strong>Plant-Derived Gloss Base</strong> – smooth glide and glass-like shine.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="card">
+        <h2>Stay in Touch</h2>
+        <p>Want tips, new shade drops, or exclusive offers? Join our glow-worthy mailing list.</p>
+        <form style="display:flex; flex-wrap:wrap; gap: 12px; margin-top:18px;">
+          <input type="email" placeholder="Email address" required style="flex:1 1 240px; padding: 14px 16px; border-radius: 999px; border: 1px solid rgba(44, 27, 37, 0.15); outline: none; box-shadow: inset 0 0 0 1px rgba(44, 27, 37, 0.06);">
+          <button type="submit" class="button button--primary" style="padding: 14px 20px; border-radius: 999px; font-weight: 700;">Subscribe</button>
+        </form>
+        <p style="margin-top: 18px; color: rgba(44, 27, 37, 0.65); font-size: 0.9rem;">We promise to only send the good stuff. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: linear-gradient(135deg, rgba(255, 93, 162, 0.95), rgba(255, 191, 199, 0.92)); color: #fff; text-align: center; padding: 32px 20px; position: relative; overflow: hidden;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <p style="margin: 0 0 12px;">© 2026 Glossy Lip Gloss • Made with care + clean ingredients</p>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; font-size: 0.9rem;">
+        <a href="#about" style="color: inherit; opacity: 0.86; transition: opacity 0.2s ease;">About</a>
+        <a href="#products" style="color: inherit; opacity: 0.86; transition: opacity 0.2s ease;">Products</a>
+        <a href="#contact" style="color: inherit; opacity: 0.86; transition: opacity 0.2s ease;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
