@@ -1,2 +1,0 @@
-# glossy
-lips moisturizers
